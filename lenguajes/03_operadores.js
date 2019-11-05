@@ -13,7 +13,7 @@ aDatos.sort()
 console.log(aDatos)
 console.log(aDatos2)
 
-// Clonado el objeto
+// Clonado el objeto (no deep)
 oPersona = {name: 'Pepe', edad : 23}
 oPersona2 = {...oPersona}
 oPersona2.edad = 56
