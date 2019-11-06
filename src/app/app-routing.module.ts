@@ -4,9 +4,14 @@ import { HomeComponent } from './home/home.component';
 
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
-  { path: 'about', 
-  loadChildren: () => import('./about/about.module').then(m => m.AboutModule) },
+  // Ejemplo de ruta no lazy { path: 'home', component: HomeComponent },
+  { path: 'home',
+  loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
+  { path: 'about',
+  loadChildren: () => import('./about/about.module').then(m => m.AboutModule)},
+  { path: '', pathMatch: 'full', redirectTo: 'home' },
+  { path: '**',   redirectTo: 'home'}
+
 ];
 
 @NgModule({

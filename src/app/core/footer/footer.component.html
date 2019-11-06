@@ -1,5 +1,13 @@
-<footer>
-    <address>
-        Alejandro Cerezo
-    </address>
+<footer class="color_resaltado">
+    <div class="container">
+        <div class="row text-center">
+            <address class='col-12 '>
+                {{ autor}}
+            </address>     
+            <p class="col-12">
+                {{ fecha.toLocaleDateString() }}
+            </p>       
+        </div>
+    </div>
 </footer>
+
