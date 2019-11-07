@@ -1,0 +1,23 @@
+<div class="form-group">
+    <label for="nombre">Nombre</label>
+    <input type="text" class="form-control" id="nombre"
+    title="Aqui va tu nombre"
+    placeholder="Escribe tu nombre" #refNombre>
+  </div>
+  <div class="form-group">
+    <label for="apellido">Apellido</label>
+    <input type="text" class="form-control" id="apellido"
+    [title]="msg"
+    placeholder="Escribe tu apellido" #refApellido">
+  </div>
+  <button type="button" (click)=" refNombre.value = refNombre.value "
+    class="btn btn-primary btn-lg">
+    Guardar
+    </button>
+  <button type="button" (click)=" refNombre.value = '' "
+      class="btn btn-primary btn-lg">
+      Borrar
+  </button>
+  <div>
+      <p>Hola {{ refNombre.value }}</p>
+  </div>

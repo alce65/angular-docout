@@ -1,21 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import { MenuComponent } from './menu.component';
 
-describe('MenuComponent', () => {
-  let component: MenuComponent;
-  let fixture: ComponentFixture<MenuComponent>;
+import { SaludoRefComponent } from './saludo-ref.component';
+
+describe('SaludoRefComponent', () => {
+  let component: SaludoRefComponent;
+  let fixture: ComponentFixture<SaludoRefComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MenuComponent ],
-      imports: [RouterTestingModule]
+      declarations: [ SaludoRefComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MenuComponent);
+    fixture = TestBed.createComponent(SaludoRefComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

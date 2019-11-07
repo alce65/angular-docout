@@ -1,0 +1,20 @@
+<div class="form-group">
+    <label for="nombre">Nombre</label>
+    <input type="text" class="form-control" id="nombre"
+    [title]="msg"
+    placeholder="Escribe tu nombre" [(ngModel)]="nombre">
+  </div>
+  <div class="form-group">
+    <label for="apellido">Apellido</label>
+    <input type="text" class="form-control" id="apellido"
+    [title]="msg"
+    placeholder="Escribe tu apellido" [(ngModel)]="apellido">
+  </div>
+
+  <button type="button" (click)="onClickBorrar($event)"
+      class="btn btn-primary btn-lg btn-block">
+      Borrar
+  </button>
+  <div>
+      <p>Hola {{nombre}}</p>
+  </div>
