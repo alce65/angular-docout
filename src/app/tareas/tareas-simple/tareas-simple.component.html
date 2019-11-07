@@ -1,0 +1,18 @@
+<h2>tareas-simple!</h2>
+<div class="form-group">
+  <input type="text" class="form-control" placeholder="Tarea"
+  [(ngModel)]="tarea.nombre">
+</div>
+<button type="button" (click)="addTarea()"
+    class="btn btn-primary">Add
+</button>
+<div class= 'mt-4' *ngIf="tareas.length">
+  <h3>Lista de Tareas</h3>
+  <ul>
+    <li *ngFor="let item of tareas">
+      <input type="checkbox" [(ngModel)]="item.isCompleted">
+      {{ item.nombre }}
+      <span (click)="">🗑️</span>
+    </li>
+  </ul>
+</div>
