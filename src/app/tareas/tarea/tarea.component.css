@@ -1,8 +1,4 @@
-ul {
-    list-style: none;
-}
-
-span.btn {
+.btn {
     cursor: pointer;
 }
 

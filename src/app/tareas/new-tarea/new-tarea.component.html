@@ -1,0 +1,7 @@
+<div class="form-group">
+    <input type="text" class="form-control" placeholder="Tarea"
+    [(ngModel)]="newTarea.nombre" (keydown.enter)="sendAddTarea()"> 
+  </div>
+  <button type="button" (click)="sendAddTarea()" 
+      class="btn btn-primary">Add
+  </button>

@@ -9,17 +9,32 @@ import { TareaModel } from 'src/app/models/tarea.model';
 export class TareasSimpleComponent implements OnInit {
   tareas: Array<TareaModel>;
   tarea: TareaModel;
+  storeName: string;
   constructor() { }
 
   ngOnInit() {
-    this.tareas = [];
+    this.storeName = 'tareasSimple';
+    this.tareas = JSON.parse(localStorage.getItem(this.storeName)) || [];
     this.tarea = new TareaModel();
   }
 
   addTarea() {
     this.tareas.push(this.tarea);
     this.tarea = new TareaModel();
-    console.log(this.tareas)
+    this.setStore();
   }
 
+  deleteTarea(i) {
+    this.tareas.splice(i, 1);
+    this.setStore();
+  }
+
+  changeTarea() {
+    this.setStore();
+  }
+
+  private setStore() {
+  localStorage.setItem(this.storeName,
+    JSON.stringify(this.tareas));
+  }
 }

@@ -6,10 +6,12 @@ import { TareasSimpleComponent } from './tareas-simple/tareas-simple.component';
 import { TareasPlusComponent } from './tareas-plus/tareas-plus.component';
 import { MenuComponent } from './menu/menu.component';
 import { FormsModule } from '@angular/forms';
+import { NewTareaComponent } from './new-tarea/new-tarea.component';
+import { TareaComponent } from './tarea/tarea.component';
 
 
 @NgModule({
-  declarations: [MainComponent, TareasSimpleComponent, TareasPlusComponent, MenuComponent],
+  declarations: [MainComponent, TareasSimpleComponent, TareasPlusComponent, MenuComponent, NewTareaComponent, TareaComponent],
   imports: [
     CommonModule,
     FormsModule,

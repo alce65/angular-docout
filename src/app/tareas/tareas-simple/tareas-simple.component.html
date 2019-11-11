@@ -1,18 +1,22 @@
 <h2>tareas-simple!</h2>
 <div class="form-group">
   <input type="text" class="form-control" placeholder="Tarea"
-  [(ngModel)]="tarea.nombre">
+  [(ngModel)]="tarea.nombre" (keydown.enter)="addTarea()">
 </div>
 <button type="button" (click)="addTarea()"
     class="btn btn-primary">Add
 </button>
-<div class= 'mt-4' *ngIf="tareas.length">
+<div class= 'mt-4'>
   <h3>Lista de Tareas</h3>
-  <ul>
-    <li *ngFor="let item of tareas">
-      <input type="checkbox" [(ngModel)]="item.isCompleted">
-      {{ item.nombre }}
-      <span (click)="">🗑️</span>
+  <ul *ngIf="tareas.length; else refElse">
+    <li *ngFor="let item of tareas; let i = index" >
+      <input type="checkbox" (change)="changeTarea()"
+        [(ngModel)]="item.isCompleted">
+      <span [ngClass]="{completed: item.isCompleted}">{{ item.nombre }}</span>
+      <span class="btn" (click)="deleteTarea(i)">🗑️</span>
     </li>
   </ul>
+  <ng-template #refElse>
+    <p>Animate con tu primera tarea</p>
+  </ng-template>
 </div>
