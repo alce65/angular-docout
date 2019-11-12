@@ -1,0 +1,10 @@
+.error {
+    color:bisque;
+    background: brown;
+    font-size: 0.8rem;
+    padding: 0.3rem;
+}
+
+.error p {
+    margin: 0rem;
+}

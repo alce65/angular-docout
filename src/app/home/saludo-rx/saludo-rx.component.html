@@ -1,0 +1,21 @@
+<h2>saludo-rx works!</h2>
+<div class="form-group">
+    <label for="nombre">Nombre</label>
+    <input type="text" class="form-control" id="nombre"
+    [title]="msg"
+    placeholder="Escribe tu nombre" [formControl]="nombre">
+  </div>
+  <div class="form-group">
+    <label for="apellido">Apellido</label>
+    <input type="text" class="form-control" id="apellido"
+    [title]=""
+    placeholder="Escribe tu apellido" [formControl]="apellido">
+  </div>
+
+  <button type="button" (click)="onClickBorrar($event)"
+      class="btn btn-primary btn-lg btn-block">
+      Borrar 
+  </button> 
+  <div [docDestacar]="'Importante'">
+      <p>Hola {{nombre.value}} {{ apellido.value }} </p>
+  </div>

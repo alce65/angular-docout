@@ -1,1 +1,78 @@
-<p>form-md works!</p>
+<header>
+    <h4>Formulario ModelDriven</h4>
+    <p>Formularios reactivos</p>
+</header>
+
+<form name="form-md" id="form-md" [formGroup]="formCurso" 
+    (submit)="onSubmit()">
+    <fieldset>
+        <legend>Datos de usuario</legend>
+        <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" class="form-control" formControlName="nombre" id="nombre">
+        </div>
+        <div *ngIf="formCurso.controls.nombre.touched && formCurso.controls.nombre.invalid" class="error">
+            <p *ngIf="formCurso.controls.nombre?.errors.required">Campo requerido</p>
+            <p *ngIf="formCurso.controls.nombre?.errors.minlength">Longitud minima de 2 caracteres</p>
+        </div>
+        <div class="form-group">
+            <label for="apellidos">Apellidos</label>
+            <input type="text" class="form-control" formControlName="apellidos" id="apellidos">
+        </div>
+        <div class="form-group">
+            <label for="paswd">Password</label>
+            <input type="text" class="form-control" formControlName="paswd" id="paswd">
+        </div>
+        <div class="form-group">
+            <label for="email">Correo</label>
+            <input type="email" class="form-control" formControlName="email" id="email">
+        </div>
+        <div class="form-group">
+            <label for="nacim">Fecha de nacimiento</label>
+            <input type="date" class="form-control" formControlName="nacim" id="nacim">
+        </div>
+        <div class="form-group">
+            <label for="coment">Comentarios</label>
+            <textarea class="form-control" formControlName="coment" id="coment" rows="3">
+            </textarea>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>Datos del curso</legend>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input type="checkbox" class="form-check-input" formControlName="isOk" id="isOk">
+                Estoy de acuerdo con ....
+            </label>
+        </div>
+        <div>
+            <legend>Turno</legend>
+            <div class="form-check" *ngFor="let item of turnos">
+                <label class="form-check-label" [title]='item.descrpcion'>
+                    <input type="radio" class="form-check-input" formControlName="turno" 
+                    name="turno" [id]="item.id" [value]="item">
+                   {{ item.nombre }}
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="curso">Selecciona el tema</label>
+            <select class="form-control" formControlName="curso" id="curso">
+                <option value=""></option>
+                <option *ngFor="let item of cursos"
+                [title]="item.descrpcion"
+                [ngValue]="item">{{item.nombre}}</option>
+            </select>
+        </div>
+    </fieldset>
+    <button type="submit" class="btn btn-primary" [disabled]="formCurso.invalid">
+        Enviar</button>
+</form>
+
+<div>
+    {{ formCurso.value | json }}
+</div>
+
+
+
+

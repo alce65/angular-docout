@@ -1,75 +1,97 @@
 <header>
     <h4>Formulario TemplateDriven</h4>
+    <p>Formularios tradicionalesr</p>
 </header>
 
-<form name="form-td" id="form-td">
-
+<form name="form-td" id="form-td" (submit)="onSubmit()" #form_td="ngForm">
     <fieldset>
         <legend>Datos de usuario</legend>
         <div class="form-group">
-            <label for="nombre">Nombre</label>
-            <input type="text" class="form-control" name="nombre" id="nombre">
+            <label for="nombre_td">Nombre</label>
+            <input type="text" class="form-control" name="nombre" id="nombre_td"
+            [(ngModel)]="alumno.nombre" #refNombre = "ngModel"
+            required minlength="2" maxlength="12">
+        </div>
+        <div *ngIf="refNombre.touched && refNombre.invalid" class="error">
+            <p *ngIf="refNombre?.errors.required">Campo requerido</p>
+            <p *ngIf="refNombre?.errors.minlength">Longitud minima de 2 caracteres</p>
         </div>
         <div class="form-group">
-            <label for="apellidos">Apellidos</label>
-            <input type="text" class="form-control" name="apellidos" id="apellidos">
+            <label for="apellidos_td">Apellidos</label>
+            <input type="text" class="form-control" name="apellidos" id="apellidos_td"
+            [(ngModel)]="alumno.apellido">
         </div>
         <div class="form-group">
-            <label for="paswd">Password</label>
-            <input type="text" class="form-control" name="paswd" id="paswd">
+            <label for="paswd_td">Password</label>
+            <input type="password" class="form-control" name="paswd" id="paswd_td"
+            [(ngModel)]="alumno.passw" #refPassw = "ngModel"
+            required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,15}$"
+            title = "Password matching expression. Password must be at least 8 characters, no more than 15 characters, and must include at least one upper case letter, one lower case letter, and one numeric digit.">
+        </div>
+        <div *ngIf="refPassw.touched && refPassw.invalid" class="error">
+            <p *ngIf="refPassw?.errors.required">Campo requerido</p>
+            <p *ngIf="refPassw?.errors.pattern">Fuerza insuficiente</p>
         </div>
         <div class="form-group">
-            <label for="email">Correo</label>
-            <input type="email" class="form-control" name="email" id="email" required>
+            <label for="email_td">Correo</label>
+            <input type="email" class="form-control" name="email" id="email_td" 
+            [(ngModel)]="alumno.correo" #refEmail = "ngModel" required>
+        </div>
+        <div *ngIf="refEmail.touched && refEmail.invalid" class="error">
+            <p *ngIf="refEmail?.errors.required">Campo requerido</p>
         </div>
         <div class="form-group">
-            <label for="nacim">Fecha de nacimiento</label>
-            <input type="date" class="form-control" name="nacim" id="nacim">
+            <label for="nacim_td">Fecha de nacimiento</label>
+            <input type="date" class="form-control" name="nacim" id="nacim_td"
+            [(ngModel)]="alumno.nacimiento">
         </div>
         <div class="form-group">
             <label for="coment">Comentarios</label>
-            <textarea class="form-control" name="coment" id="coment" rows="3"></textarea>
+            <textarea class="form-control" name="coment" id="coment_td" rows="3"
+            [(ngModel)]="alumno.comentarios">
+            </textarea>
         </div>
     </fieldset>
     <fieldset>
         <legend>Datos del curso</legend>
         <div class="form-check">
             <label class="form-check-label">
-                <input type="checkbox" class="form-check-input" name="isOk" id="isOk">
+                <input type="checkbox" class="form-check-input" 
+                name="isOk" id="isOk_td" [(ngModel)]="alumno.isOk" 
+                #refOk = "ngModel" required>
                 Estoy de acuerdo con ....
             </label>
         </div>
+        <div *ngIf="refOk.touched && refOk.invalid" class="error">
+            <p *ngIf="refOk?.errors.required">Campo requerido</p>
+        </div>
         <div>
             <legend>Turno</legend>
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="turno" id="" value="mañana" required>
-                    Mañana
+            <div class="form-check" *ngFor="let item of turnos">
+                <label class="form-check-label" [title]='item.descrpcion'>
+                    <input type="radio" class="form-check-input" name="turno" [id]="item.id+'_td'" 
+                    [value]="item"  [(ngModel)]="alumno.turno" 
+                    #refTurno = "ngModel" required>
+                   {{ item.nombre }}
                 </label>
             </div>
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="turno" id="" value="tarde">
-                    Tarde
-                </label>
-            </div>
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="turno" id="" value="noche">
-                    Noche
-                </label>
-            </div>
+            <!-- <div *ngIf="refTurno.touched && refTurno.invalid" class="error">
+                <p *ngIf="refTurno?.errors.required">Campo requerido</p>
+            </div> -->
         </div>
         <div class="form-group">
-            <label for="curso">Selecciona el tema</label>
-            <select class="form-control" name="curso" id="curso" required>
-                <option value=""></option>
+            <label for="curso_td">Selecciona el tema</label>
+            <select class="form-control" name="curso" id="curso_td" 
+            [(ngModel)]="alumno.curso" #refCurso = "ngModel" required>
                 <option *ngFor="let item of cursos"
                 [title]="item.descrpcion"
                 [ngValue]="item">{{item.nombre}}</option>
             </select>
         </div>
+        <div *ngIf="refCurso.touched && refCurso.invalid" class="error">
+            <p *ngIf="refCurso?.errors.required">Campo requerido</p>
+        </div>  
     </fieldset>
-    <button type="submit" class="btn btn-primary">
+    <button type="submit" class="btn btn-primary" [disabled]="form_td.invalid">
         Enviar</button>
 </form>
