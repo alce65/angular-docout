@@ -15,7 +15,7 @@ export class DestacarDirective implements OnInit {
     console.log('Directiva aplicada');
     console.dir(this.element);
     this.element.nativeElement.classList.add('destacar');
-    this.element.nativeElement.innerHTML += this.docDestacar.toUpperCase()
+    this.element.nativeElement.innerHTML += ' ' + this.docDestacar.toUpperCase()
     console.log(this.docDestacar);
   }
 
