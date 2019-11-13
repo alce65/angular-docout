@@ -6,7 +6,7 @@ import { NgForm } from '@angular/forms';
 @Component({
   selector: 'doc-form-td',
   templateUrl: './form-td.component.html',
-  styleUrls: ['./form-td.component.css']
+  styleUrls: ['./form-td.component.css'],
 })
 export class FormTdComponent implements OnInit {
   cursos: Array<MaestrosIf>;
