@@ -12,3 +12,7 @@ body {
 main {
     min-height: 70vh;
 }
+
+.destacar {
+    background-color: orange;
+}
