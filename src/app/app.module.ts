@@ -8,6 +8,7 @@ import { CoreModule } from './core/core.module';
 import localeEs from '@angular/common/locales/es';
 import { registerLocaleData } from '@angular/common';
 import { UtilsModule } from './utils/utils.module';
+import { HttpClientModule} from '@angular/common/http';
 
 registerLocaleData(localeEs, 'es');
 
@@ -20,12 +21,13 @@ registerLocaleData(localeEs, 'es');
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     AppRoutingModule,
     NgbModule,
     CoreModule,
     UtilsModule
   ],
-  providers: [ 
+  providers: [
     {provide: LOCALE_ID , useValue: 'es-ES'}
  ],
   bootstrap: [AppComponent]

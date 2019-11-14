@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-header">
-        <h2>libros-mock</h2>
+        <h2>libros-Google</h2>
     </div>
     <div class="card-body">
         <div class="form-group">
@@ -11,19 +11,15 @@
             (keydown.enter)="buscar()"
             placeholder="clave a buscar en el titulo">
             <button type="button" class="btn btn-primary"
-            (click)="buscar()">
+            (click)="buscar()"> 
                 Buscar
             </button>
             <button type="button" class="btn btn-primary"
-            (click)="buscarByService()">
-                Buscar (Servicio)
+            (click)="buscarRx()">
+                BuscarRx
             </button>
             <button type="button" class="btn btn-primary"
-            (click)="buscarByServiceAsync()">
-                Buscar (Servicio Asinc)
-            </button>
-            <button type="button" class="btn btn-primary"
-            (click)="borrar()">
+            (click)="borrar()"> 
                 Borrar
             </button>
         </div>
@@ -35,8 +31,5 @@
                 {{libro.autores}} - {{libro.titulo}}
             </li>
         </ul>
-    </div>
-    <div>
-        {{ errorMesg }}
     </div>
 </div>

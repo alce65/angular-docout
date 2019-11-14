@@ -1,1 +1,35 @@
-<p>libros-google works!</p>
+<div class="card">
+    <div class="card-header">
+        <h2>libros-Google</h2>
+    </div>
+    <div class="card-body">
+        <div class="form-group">
+          <label for="clave">En el titulo</label>
+          <input type="text"
+            class="form-control" id="clave" 
+            [formControl] = 'clave'
+            (keydown.enter)="buscar()"
+            placeholder="clave a buscar en el titulo">
+            <button type="button" class="btn btn-primary"
+            (click)="buscar()"> 
+                Buscar
+            </button>
+            <button type="button" class="btn btn-primary"
+            (click)="buscarRx()">
+                BuscarRx
+            </button>
+            <button type="button" class="btn btn-primary"
+            (click)="borrar()"> 
+                Borrar
+            </button>
+        </div>
+    </div>
+    <div class="card-footer text-muted" *ngIf="libros.length">
+        Resultados
+        <ul>
+            <li *ngFor="let libro of libros">
+                {{libro.autores}} - {{libro.titulo}}
+            </li>
+        </ul>
+    </div>
+</div>
