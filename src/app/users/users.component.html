@@ -1,0 +1,66 @@
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <p>Seleccionar Usuarios</p>
+            <select [formControl] = 'selectedUser' (change)='onSelectUser()'
+            [title] = 'mensajes[0]'>
+                <option></option>
+                <option [ngValue]="user" *ngFor="let user of users">
+                    {{user.id}} - {{ user.name }}
+                </option>
+            </select>
+            <div class="mt-4" *ngIf="selectedUser.value">
+                <button type="button" (click)="onModifyBtn()"
+                    class="btn btn-secondary">Modificar</button>
+                <button type="button" (click)="onDeleteUser()"
+                    class="btn btn-secondary">Borrar</button>
+            </div>
+
+
+        </div>
+        <div class="col-6" *ngIf="!selectedUser.value">
+            <h3>Nuevo usuario</h3>
+            <div class="form-group">
+            <label for="name">Nombre</label>
+            <input type="text" class="form-control" id="name" [formControl]="fcName">
+            </div>
+            <div class="form-group">
+                <label for="email">Correo</label>
+                <input type="text" class="form-control" id="email" [formControl]="fcEmail">
+            </div>
+            <button type="button" class="btn btn-primary" (click)='onAddUser()'>Añadir</button>
+            <div *ngIf="newUser" class="mt-3">
+                <h3>Resultados</h3>
+                <ul>
+                    <li>{{ newUser.id}}</li>
+                    <li>{{ newUser.name}}</li>
+                    <li>{{ newUser.email}}</li>                    
+                </ul>
+            </div>
+        </div>
+        <div class="col-6" *ngIf="isModif">
+            <h3>Modificando Usuario</h3>
+            <div class="form-group">
+                <label for="name">Nombre</label>
+                <input type="text" class="form-control" id="name" [formControl]="fcName">
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo</label>
+                    <input type="text" class="form-control" id="email" [formControl]="fcEmail">
+                </div>
+                <button type="button" class="btn btn-primary" (click)='onModifyUser()'>Modificar</button>
+                <div *ngIf="modifyUser" class="mt-3">
+                    <h3>Resultados</h3>
+                    <ul>
+                        <li>{{ modifyUser.id}}</li>
+                        <li>{{ modifyUser.name}}</li>
+                        <li>{{ modifyUser.email}}</li>                    
+                    </ul>
+                </div>
+        </div>        
+    </div>
+</div>
+
+
+
+

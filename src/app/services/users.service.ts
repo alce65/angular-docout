@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { read } from 'fs';
+import { UserModel } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,22 +12,24 @@ export class UsersService {
     this.url = environment.urlUsers;
    }
 
-   read(n) {
-     return this.http.get(this.url + n).toPromise();
-   }
-   readAll() {
-    return this.http.get(this.url).toPromise();
+   read(n): Promise<UserModel> {
+     return this.http.get(this.url + n).toPromise() as Promise<UserModel>;
    }
 
-   create(data) {
-     return this.http.post(this.url, data).toPromise();
+   readAll(): Promise<Array<UserModel>> {
+    return this.http.get(this.url).toPromise() as Promise<Array<UserModel>>;
    }
 
-   update(n, data) {
+   create(data: UserModel): Promise<UserModel> {
+     return this.http.post(this.url, data).toPromise() as Promise<UserModel>;
+   }
+
+   update(n: number, data: UserModel): Promise<UserModel>  {
     // return this.http.put()
-    return this.http.patch(this.url + n, data).toPromise();
+    return this.http.patch(this.url + n, data).toPromise() as Promise<UserModel>;
    }
-   delete(n) {
+
+   delete(n: number) {
     return this.http.delete(this.url + n).toPromise();
    }
 }
