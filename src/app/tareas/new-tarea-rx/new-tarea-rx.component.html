@@ -1,0 +1,9 @@
+<div class="form-group">
+    <input type="text" class="form-control" placeholder="Tarea"
+    [formControl]="fcTarea" (keydown.enter)="sendAddTarea()">
+  </div>
+  <button type="button" (click)="sendAddTarea()" 
+      class="btn btn-primary">Add
+  </button>
+
+  {{ aTareas$ | async | json }}

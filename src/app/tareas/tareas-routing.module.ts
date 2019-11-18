@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { MainComponent } from './main/main.component';
 import { TareasSimpleComponent } from './tareas-simple/tareas-simple.component';
 import { TareasPlusComponent } from './tareas-plus/tareas-plus.component';
+import { TareasRxComponent } from './tareas-rx/tareas-rx.component';
 
 
 const routes: Routes = [
@@ -10,7 +11,8 @@ const routes: Routes = [
   component: MainComponent,
   children: [
         {path: 'simple', component: TareasSimpleComponent}, 
-        {path: 'plus', component: TareasPlusComponent}
+        {path: 'plus', component: TareasPlusComponent},
+        {path: 'rx', component: TareasRxComponent },
       ]
   },
 ];

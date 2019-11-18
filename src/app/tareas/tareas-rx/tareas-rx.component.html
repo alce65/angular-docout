@@ -1,0 +1,16 @@
+<h2>tareas-rx!</h2>
+<doc-new-tarea-rx></doc-new-tarea-rx>
+
+<div class="mt-3">
+<h3>Lista de tareas</h3>
+<table class="table table-striped">
+    <tbody>
+        <doc-tarea *ngFor="let item of tareas; let i = index"
+        [tarea]="item" [i]="i"></doc-tarea>
+    </tbody>
+</table>
+</div>
+<button type="button" (click)='resetTareas()' class="btn btn-primary btn-lg btn-block">
+    Borrar todas las tareas
+</button>
+ 
