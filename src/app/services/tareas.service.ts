@@ -15,13 +15,22 @@ export class TareasService {
     this.tareas$ = new Subject();
    }
 
-  subcribe() {
+  subcribeTarea() {
     return this.tareas$.asObservable();
   }
 
   addTarea(tarea: TareaModel) {
     this.tareas.push(tarea);
-    console.log(this.tareas);
+    this.tareas$.next(this.tareas);
+  }
+
+  channgeTarea(i: number) {
+    this.tareas[i].isCompleted = !this.tareas[i].isCompleted;
+    this.tareas$.next(this.tareas);
+  }
+
+  deleteTaarea(i: number) {
+    this.tareas.splice(i, 1);
     this.tareas$.next(this.tareas);
   }
 }
