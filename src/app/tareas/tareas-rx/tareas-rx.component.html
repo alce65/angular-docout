@@ -6,7 +6,9 @@
 <table class="table table-striped">
     <tbody>
         <doc-tarea *ngFor="let item of tareas; let i = index"
-        [tarea]="item" [i]="i"></doc-tarea>
+        [tarea]="item" [i]="i"
+        (changeTarea)="changeTarea($event)" 
+        (deleteTarea)="deleteTarea($event)"></doc-tarea>
     </tbody>
 </table>
 </div>

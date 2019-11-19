@@ -11,14 +11,11 @@ import { TareasService } from 'src/app/services/tareas.service';
 })
 export class NewTareaRxComponent implements OnInit {
   fcTarea: FormControl;
-  aTareas: Array<TareaModel>;
-  aTareas$: Observable<Array<TareaModel>>;
 
   constructor(private tareasService: TareasService) {}
 
   ngOnInit() {
     this.fcTarea = new FormControl();
-    this.aTareas$ = this.tareasService.subcribe()
   }
 
   sendAddTarea() {
