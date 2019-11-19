@@ -5,7 +5,9 @@
 export const environment = {
   production: false,
   urlLibros: 'https://www.googleapis.com/books/v1/volumes?q=intitle:',
-  urlUsers: 'http://localhost:3000/users/'
+  urlUsers: 'http://localhost:3000/users/',
+  urlPaises: 'https://restcountries.eu/rest/v2/region/',
+  urlInfoPais: 'https://restcountries.eu/rest/v2/alpha/'
 };
 
 /*
