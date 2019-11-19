@@ -1,0 +1,24 @@
+<h2>Paises</h2>
+<div class="form-group">
+  <label for="conti">Continente</label>
+  <select class="form-control" name="conti" id="conti"
+    [(ngModel)]="selectedContinent" (change)="onContinent()">
+    <option [ngValue]='item' *ngFor="let item of continentes">
+        {{ item.nombre }}</option>
+  </select>
+</div>
+<div class="form-group">
+  <label for="paises">Paises</label>
+  <select class="form-control" name="paises" id="paises"
+    [(ngModel)]="selectedPais" (change)="onPais()">
+    <option [ngValue]='item' *ngFor="let item of paises">
+      {{ item.name }}
+    </option>
+  </select>
+</div>
+
+Paises
+<ul>
+    <li *ngFor="let item of paises">
+      <a [routerLink]="item.alpha3Code" >{{item.name}}</a></li>
+</ul>

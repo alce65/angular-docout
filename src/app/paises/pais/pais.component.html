@@ -1,0 +1,15 @@
+<h3>Informacion de {{ pais.name }}</h3>
+
+<div>
+    <div class="info">
+        <ul>
+            <li>Capital: {{ pais.capital }}</li>
+        </ul>
+        {{ pais | json }}
+    </div>
+    <div class="flag">
+        <img [src]="pais.flag" alt="Bandera de {{ pais.name }}">
+    </div>
+</div>
+<button type="button" class="btn btn-primary"
+    (click)="onPaises()">Paises (volver)</button>
